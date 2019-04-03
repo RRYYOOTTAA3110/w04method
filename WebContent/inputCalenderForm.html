@@ -1,1 +1,97 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <title>Insert title here</title></head><body></body></html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>カレンダー</title>
+	</head>
+	<body>
+		<h1>カレンダー</h1>
+		<ul>
+			<li>年を選択してください。</li>
+			<li>月を選択してください。</li>
+		</ul>
+
+		<hr>
+
+		<!-- GET送信　開始/  -->
+		<form method="get" action="/w04method/CalenderBuilder">
+			<p>
+				<select name="year">
+					<option value="2000">2000</option>
+					<option value="2001">2001</option>
+					<option value="2002">2002</option>
+					<option value="2003">2003</option>
+					<option value="2004">2004</option>
+					<option value="2005">2005</option>
+					<option value="2006">2006</option>
+					<option value="2007">2007</option>
+					<option value="2008">2008</option>
+					<option value="2009">2009</option>
+					<option value="2010">2010</option>
+					<option value="2011">2011</option>
+					<option value="2012">2012</option>
+				</select>年
+
+				<select name="month">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				</select>月
+
+				<input type="submit" value="GET送信">
+			</p>
+		</form>
+		<!-- GET送信　終了/  -->
+
+		<hr>
+
+		<!-- POST送信　開始/  -->
+		<form method="post" action="/w04method/CalenderBuilder">
+			<p>
+				<select name="year">
+					<option value="2000">2000</option>
+					<option value="2001">2001</option>
+					<option value="2002">2002</option>
+					<option value="2003">2003</option>
+					<option value="2004">2004</option>
+					<option value="2005">2005</option>
+					<option value="2006">2006</option>
+					<option value="2007">2007</option>
+					<option value="2008">2008</option>
+					<option value="2009">2009</option>
+					<option value="2010">2010</option>
+					<option value="2011">2011</option>
+					<option value="2012">2012</option>
+				</select>年
+
+				<select name="month">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				</select>月
+
+				<input type="submit" value="POST送信">
+			</p>
+		</form>
+		<!-- POST送信　終了/  -->
+
+	</body>
+</html>
