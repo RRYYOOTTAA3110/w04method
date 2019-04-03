@@ -10,3 +10,11 @@ td {
 	color: #999999;
 	font-size: small;
 }
+
+.sun {
+	color: #ff0000;
+}
+
+.sat {
+	color: #0000ff;
+}

@@ -107,11 +107,38 @@ public class CalenderBuilder extends HttpServlet {
 		sb.append("<tr>");
 
 		for(int i = 0; i < dayOfWeek.length; i++){
-			sb.append("<th>" + dayOfWeek[i] + "</th>");
+
+			if(i == 0){
+				sb.append("<th class=\"sun\">" + dayOfWeek[i] + "</th>");
+			} else if(i == 6){
+				sb.append("<th class=\"sat\">" + dayOfWeek[i] + "</th>");
+			} else {
+				sb.append("<th>" + dayOfWeek[i] + "</th>");
+			}
+
 		}
 		sb.append("</tr>");
 
 		for(int i = 0; i < calenderArray.length && calenderArray[i] != 0;){
+		sb.append("<tr>");
+		for(int j = 0; j < 7; i++, j++){
+			if(calenderArray[i] > bias) {
+				sb.append("<td class=\"otherMonth\">" + (calenderArray[i] - bias) + "</td>");
+			} else if(i == 0 || i % 7 == 0){
+				sb.append("<td class=\"sun\">" + calenderArray[i] + "</td>");
+			} else if((i + 1) % 7 == 0){
+				sb.append("<td class=\"sat\">" + calenderArray[i] + "</td>");
+			} else {
+				sb.append("<td>" + calenderArray[i] + "</td>");
+
+			}
+		}
+
+		sb.append("</tr>");
+		}
+
+
+/*		for(int i = 0; i < calenderArray.length && calenderArray[i] != 0;){
 			sb.append("<tr>");
 			for(int j = 0; j < 7; i++, j++){
 				if(calenderArray[i] > bias){
@@ -121,7 +148,7 @@ public class CalenderBuilder extends HttpServlet {
 				}
 			}
 			sb.append("</tr>");
-		}
+		}*/
 		sb.append("</table>");
 
 		return sb;
@@ -135,7 +162,7 @@ public class CalenderBuilder extends HttpServlet {
 		sb.append("<head>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
 		sb.append("<title>" + title  + "</title>");
-		sb.append("<link href=\"" + css + "\" rel=\"stylesheet\"type=\"text/css\">");
+		sb.append("<link href=\"" + css + "\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />");
 		sb.append("</head>");
 		sb.append("<body>");
 		sb.append("<h1>" + title + "</h1>");
