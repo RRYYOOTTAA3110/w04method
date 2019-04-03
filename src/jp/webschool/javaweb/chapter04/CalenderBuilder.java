@@ -96,7 +96,54 @@ public class CalenderBuilder extends HttpServlet {
 
 		return calenderArray;
 
+	}
 
+	private StringBuilder buildCalenderTable(int[] calenderArray){
+		StringBuilder sb = new StringBuilder();
+		String[] dayOfWeek = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+		int bias = 35;
+
+		sb.append("<table>");
+		sb.append("<tr>");
+
+		for(int i = 0; i < dayOfWeek.length; i++){
+			sb.append("<th>" + dayOfWeek[i] + "</th>");
+		}
+		sb.append("</tr>");
+
+		for(int i = 0; i < calenderArray.length && calenderArray[i] != 0;){
+			sb.append("<tr>");
+			for(int j = 0; j < 7; i++, j++){
+				if(calenderArray[i] > bias){
+				sb.append("<td class=\"otherMonth\">" + (calenderArray[i] - bias) + "</td>");
+				} else {
+					sb.append("<td>" + calenderArray[i] + "</td>");
+				}
+			}
+			sb.append("</tr>");
+		}
+		sb.append("</table>");
+
+		return sb;
+
+	}
+
+	private StringBuilder buildHtml(String title, String css, StringBuilder contents){
+		StringBuilder sb = new StringBuilder();
+		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">");
+		sb.append("<html>");
+		sb.append("<head>");
+		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
+		sb.append("<title>" + title  + "</title>");
+		sb.append("<link href=\"" + css + "\" rel=\"stylesheet\"type=\"text/css\">");
+		sb.append("</head>");
+		sb.append("<body>");
+		sb.append("<h1>" + title + "</h1>");
+		sb.append(contents);
+		sb.append("</body>");
+		sb.append("</html>");
+
+		return sb;
 
 	}
 

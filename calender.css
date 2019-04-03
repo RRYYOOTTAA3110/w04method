@@ -1,0 +1,12 @@
+/* カレンダーhtmlのCSS */
+td {
+	width: 30px;
+	text-align: right;
+	border-left-style: solid;
+	border-left-color: #999999;
+}
+
+.otherMonth {
+	color: #999999;
+	font-size: small;
+}
