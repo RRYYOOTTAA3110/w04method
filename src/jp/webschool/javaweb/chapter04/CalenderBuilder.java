@@ -47,7 +47,7 @@ public class CalenderBuilder extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+/*		request.setCharacterEncoding("UTF-8");
 		int year = Integer.parseInt(request.getParameter("year"));
 		int month = Integer.parseInt(request.getParameter("month"));
 
@@ -59,7 +59,10 @@ public class CalenderBuilder extends HttpServlet {
 
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println(html);
+		out.println(html);*/
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("GET送信してください。");
 
 	}
 
