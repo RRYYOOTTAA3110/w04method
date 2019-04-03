@@ -2,6 +2,7 @@ package jp.webschool.javaweb.chapter04;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -61,5 +62,44 @@ public class CalenderBuilder extends HttpServlet {
 		out.println(html);
 
 	}
+
+	private int[] buildCalenderArray(int year, int month){
+		Calendar calendar = Calendar.getInstance();
+
+		//指定された月の1日の曜日
+		calendar.set(year, month, 1);
+		int currentMonthFirstWeek = calendar.get(Calendar.DAY_OF_WEEK);
+
+		//指定された月の月末
+		calendar.set(year, month + 1, 0);
+		int currentMonthLastDay = calendar.get(Calendar.DATE);
+
+		//前月の末日
+		calendar.set(year, month, 0);
+		int previousMonthLastDay = calendar.get(Calendar.DATE);
+
+		int[] calenderArray = new int[42];
+		int calendarIndex = 0;
+		int bias = 35;
+
+		for(int i = 0; i < currentMonthFirstWeek - 1; i++, calendarIndex++){
+			calenderArray[calendarIndex] = previousMonthLastDay - currentMonthFirstWeek + i + 2 + bias;
+		}
+
+		for(int i = 0; i < currentMonthLastDay; i++, calendarIndex++){
+			calenderArray[calendarIndex] = i + 1;
+		}
+
+		for(int i = 0; calendarIndex % 7 != 0; i++, calendarIndex++){
+			calenderArray[calendarIndex] = i + 1 + bias;
+		}
+
+		return calenderArray;
+
+
+
+	}
+
+
 
 }
